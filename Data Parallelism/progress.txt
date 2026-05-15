@@ -1,0 +1,97 @@
+PROJECT
+│
+├── main2.c
+│   │
+│   ├── Step 1: Basic Thread Creation
+│   │   ├── pthread_create()
+│   │   ├── pthread_join()
+│   │
+│   ├── Step 2: Shared Counter Introduction
+│   │   ├── global int counter
+│   │
+│   ├── Step 3: Mutex Synchronization
+│   │   ├── pthread_mutex_t lock
+│   │   ├── pthread_mutex_init()
+│   │   ├── pthread_mutex_destroy()
+│   │
+│   ├── Step 4: CPU Awareness (indirect use)
+│   │   └── (used in worker threads)
+│   │
+│   ├── Step 5: Multi-threaded Prime Split
+│   │   ├── Range struct usage
+│   │   ├── pthread_create() → 2 times for primes
+│   │   └── pthread_create() → 1 time for fib
+│   │
+│   └── Step 6: Parallel Execution Model
+│       └── Data parallelism (range splitting)
+│
+│
+├── prime.c
+│   │
+│   ├── Step 1: Basic Prime Logic
+│   │   ├── for loops
+│   │   ├── modulus (%)
+│   │
+│   ├── Step 2: Shared Counter Access
+│   │   └── counter++
+│   │
+│   ├── Step 3: Mutex Protection
+│   │   ├── pthread_mutex_lock()
+│   │   └── pthread_mutex_unlock()
+│   │
+│   ├── Step 4: Thread Identification
+│   │   └── pthread_self()
+│   │
+│   ├── Step 5: CPU Core Tracking
+│   │   └── sched_getcpu()
+│   │
+│   ├── Step 6: Range-based Processing (NEW)
+│   │   ├── Range* argument
+│   │   ├── start, end extraction
+│   │
+│   ├── Step 7: Optimized Prime Check
+│   │   └── j * j <= i   (√n optimization)
+│   │
+│   └── Step 8: Critical Section Design
+│       └── lock → print → unlock
+│
+│
+├── fib.c
+│   │
+│   ├── Step 1: Fibonacci Logic
+│   │   ├── iterative addition
+│   │
+│   ├── Step 2: Shared Counter
+│   │   └── counter++
+│   │
+│   ├── Step 3: Mutex Protection
+│   │   ├── pthread_mutex_lock()
+│   │   └── pthread_mutex_unlock()
+│   │
+│   ├── Step 4: Thread Identification
+│   │   └── pthread_self()
+│   │
+│   ├── Step 5: CPU Tracking
+│   │   └── sched_getcpu()
+│   │
+│   └── Step 6: Integer Limitation Issue
+│       └── overflow (int → negative values)
+│
+│
+├── myhead2.h
+│   │
+│   ├── Step 1: Function Declarations
+│   │   ├── printPrimes()
+│   │   ├── printFibonacci()
+│   │
+│   ├── Step 2: Shared Variables
+│   │   ├── extern int counter
+│   │   └── extern pthread_mutex_t lock
+│   │
+│   ├── Step 3: Struct Introduction (NEW)
+│   │   └── typedef struct Range
+│   │       ├── int start
+│   │       └── int end
+│   │
+│   └── Step 4: Cross-file Linking Concept
+│       └── extern keyword usage

@@ -1,0 +1,28 @@
+# C
+*.o
+*.a
+*.so
+*.exe
+*.out
+*.elf
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build
+build/
+dist/
+cmake-build-debug/
+Debug/
+Release/
+
+# Object files
+*.o
+*.obj
+
+# Logs
+*.log
