@@ -1,15 +1,16 @@
 #include <stdio.h>
 
 int main(){
-    int arr[8]= {1,2,3,4,5,7,12};
+    int arr[8]= {14,27,33,94,5,7,12};
     int size=7;
-    int index=2, newval=56;
+    int index=7, newval=89;
     for(int i=size;i>index;i--){
         arr[i]=arr[i-1];
     }
     arr[index]=newval;
     size++;
-    for(int i=0; i<size;i++){
+    printf("Elements in the array...");
+    for(int i=0; i<size; i++){
         printf("%d\t", arr[i]);
     }
     return 0;
